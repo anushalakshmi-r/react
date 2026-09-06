@@ -1,36 +1,11 @@
-import { useState } from "react";
+function UserGreeting() {
+    const isLoggedIn = true;
 
-function TodoList() {
-    const [todos, setTodos] = useState([
-        { id: 1, task: "Learn React", completed: false },
-        { id: 2, task: "Build a project", completed: true },
-    ]);
+    if (isLoggedIn) {
+        return <p>Welcome User</p>;
+    }
 
-    const toggleComplete = (id) => {
-        setTodos((currentTodos) =>
-            currentTodos.map((todo) =>
-                todo.id === id
-                    ? { ...todo, completed: !todo.completed }
-                    : todo
-            )
-        );
-    };
-
-    return (
-        <ul>
-            {todos.map((todo) => (
-                <li
-                    key={todo.id}
-                    style={{
-                        textDecoration: todo.completed ? "line-through" : "none",
-                    }}
-                    onClick={() => toggleComplete(todo.id)}
-                >
-                    {todo.task}
-                </li>
-            ))}
-        </ul>
-    );
+    return <p>Please Login</p>;
 }
 
-export default TodoList;
+export default UserGreeting;
