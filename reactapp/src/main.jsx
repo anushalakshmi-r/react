@@ -1,12 +1,14 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import App from "./App";
 import { AuthProvider } from "./AuthContext";
-import LoginButton from "./LoginButton";
 
 const root = createRoot(document.getElementById("root"));
 
 root.render(
-  <AuthProvider>
-    <LoginButton />
-  </AuthProvider>
+  <React.StrictMode>
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  </React.StrictMode>
 );

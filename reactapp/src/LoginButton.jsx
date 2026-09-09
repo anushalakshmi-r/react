@@ -5,13 +5,15 @@ function LoginButton() {
   const { user, login, logout } = useContext(AuthContext);
 
   return (
-    <div>
-      {user ? (
-        <button onClick={logout}>Logout</button>
-      ) : (
-        <button onClick={() => login({ name: "John Doe" })}>Login</button>
-      )}
-    </div>
+    <button
+      onClick={() =>
+        user
+          ? logout()
+          : login({ name: "John Doe", email: "john@example.com" })
+      }
+    >
+      {user ? "Logout" : "Login"}
+    </button>
   );
 }
 
